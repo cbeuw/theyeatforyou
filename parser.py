@@ -43,8 +43,10 @@ if __name__ == "__main__":
 
     overall_count = 0
     success_count = 0
-    for typ, grammar_file in {"naked": "grammars/payment.lark", "heading": "grammars/payment_header.lark",
-                              "sub": "grammars/payment_sub.lark"}.items():
+    for typ, grammar_file in {"naked": "grammars/payment.lark",
+                              "heading": "grammars/payment_header.lark",
+                              "sub": "grammars/payment_sub.lark"
+                              }.items():
         with open(grammar_file, "r") as grammar:
             parser = Lark(grammar, debug=True)
             success, fail = try_parse(parser, lines[typ])

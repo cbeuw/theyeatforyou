@@ -4,12 +4,13 @@ registration_date: "(" "Registered" date ("; updated" date)? ")"
 entity: /.+[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}/
 duration: ("approx."? (/(\d+(\.\d+)? h(ou)?rs?)/ | /(\d+ h(ou)?rs? \d+ min(ute)?s?)/ | /(\d+ min(ute)?s?)/) ("to date")?) | "no additional hours"i
 _RECEIVED: "received"i | "payment of"i | "received payment of"i
-dest: "All"? "Fee"i "s"? ("paid direct" | "donated") "to" /[\w\s]+/ "."
+dest: "Unless stated otherwise,"? ("All"i? ("Fee"i | "payment") "s"? ("paid direct" | "donated") | ("These fees are paid")) "to" _PHRASE+
 received: (date "," _RECEIVED money) | (_RECEIVED money "on" date) | (money _RECEIVED "on" date) | ("On" date "I" _RECEIVED money)
 received_no_date: "Payment of" money
 expected: ("Payment"? "of"? money "expected") | ("Payment expected of" money)
 
-duration_explanation: /[\w\s\(\)]+/
+_PHRASE: (WORD | WS | "," | "." | "&" | "\(" | "\)" | DIGIT)+
+duration_explanation: _PHRASE
 
 
 date: DAY MONTH YEAR
@@ -18,3 +19,7 @@ MONTH: "January" | "February" | "March" | "April" | "May" | "June" | "July" | "A
 YEAR: /\d\d\d\d/
 
 LATE: "This is a late register entry to which the rectification procedure was applied on" /[\w\s]+/ ". Paragraph 15 of Chapter 4 of the Guide to the Rules applies."
+
+%import common.WORD
+%import common.DIGIT
+%import common.WS
