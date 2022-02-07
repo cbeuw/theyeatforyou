@@ -1,0 +1,16 @@
+start: (received | received_no_date | expected) ("from" entity ("," | "."))? purpose? ("." | ",")? "Hours" /.*:|\./ duration duration_explanation? "."? dest? registration_date LATE?
+
+%ignore " "
+%import .shared.purpose
+%import .shared.money
+%import .shared.registration_date
+%import .shared.date
+%import .shared.duration
+%import .shared._RECEIVED
+%import .shared.dest
+%import .shared.received
+%import .shared.expected
+%import .shared.entity
+%import .shared.LATE
+%import .shared.received_no_date
+%import .shared.duration_explanation

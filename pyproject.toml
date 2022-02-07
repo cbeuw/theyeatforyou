@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "theyeatforyou"
+version = "0.1.0"
+description = ""
+authors = ["Andy Wang <cbeuw.andy@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+lark = "^1.1.0"
+bs4 = "^0.0.1"
+requests = "^2.27.1"
+tqdm = "^4.62.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

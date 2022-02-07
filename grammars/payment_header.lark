@@ -1,0 +1,6 @@
+start: "Payments from" entity ("," purpose)? ("."|":")? dest?
+
+%ignore " "
+%import .shared.purpose
+%import .shared.entity
+%import .shared.dest
