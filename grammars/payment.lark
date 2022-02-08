@@ -1,4 +1,4 @@
-start: (received | received_no_date | expected) "from" entity "," purpose? "." "Hours" /.*:/? duration duration_explanation? "."? dest? registration_date LATE?
+start: (received | received_no_date | expected) "from" entity "," purpose? "." time_commitment? "."? dest? registration_date LATE?
 
 %ignore " "
 
@@ -6,7 +6,6 @@ start: (received | received_no_date | expected) "from" entity "," purpose? "." "
 %import .shared.money
 %import .shared.registration_date
 %import .shared.date
-%import .shared.duration
 %import .shared.entity
 %import .shared._RECEIVED
 %import .shared.dest
@@ -14,4 +13,4 @@ start: (received | received_no_date | expected) "from" entity "," purpose? "." "
 %import .shared.expected
 %import .shared.LATE
 %import .shared.received_no_date
-%import .shared.duration_explanation
+%import .shared.time_commitment
