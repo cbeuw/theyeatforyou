@@ -4,13 +4,14 @@ registration_date: "(" "Registered" date ("; updated" date)? ")"
 entity: /.+[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}/
 duration: ("approx."? (/(\d+(\.\d+)? h(ou)?rs?)/ | /(\d+ h(ou)?rs? \d+ min(ute)?s?)/ | /(\d+ min(ute)?s?)/) ("to date")?) | "no additional hours"i
 _RECEIVED: "received"i | "payment of"i | "received payment of"i
-dest: "Unless stated otherwise,"? ("All"i? ("Fee"i | "payment") "s"? ("paid" | "paid direct" | "donated") | ("These fees are paid")) "to" _PHRASE+
+_FROM: "from" | "via"
+dest: "Unless stated otherwise,"? ("All"i? ("Fee"i | "payment") "s"? "are"? ("paid" | "paid direct" | "made direct" | "donated") | ("These fees are paid")) "to" _PHRASE+
 received: (date "," _RECEIVED money) | (_RECEIVED money "on" date) | (money "received" "on" date) | ("On" date "I" _RECEIVED money) | (date "," money "received")
 received_no_date: "Payment of" money
 expected: ("Payment"? "of"? money "expected") | ("Payment expected of" money)
 time_commitment: "Hours" /.*:|\./? duration duration_explanation?
 
-_PHRASE: (WORD | WS | "," | "." | "&" | "\(" | "\)" | DIGIT)+
+_PHRASE: (WORD | WS | "," | "." | "&" | DIGIT)+
 duration_explanation: _PHRASE
 
 

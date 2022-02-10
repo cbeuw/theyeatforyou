@@ -1,6 +1,7 @@
-start: ("Payments" | "Fees") "from" entity ","? purpose? ("."|":")? dest? ("."|":")?
+start: ("Payments" | "Fees") ((_FROM entity ","? purpose?) | (purpose ","? _FROM entity)) ("."|":")? dest? ("."|":")?
 
 %ignore " "
 %import .shared.purpose
 %import .shared.entity
 %import .shared.dest
+%import .shared._FROM

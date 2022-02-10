@@ -1,4 +1,4 @@
-start: (received | received_no_date | expected) "from" entity "," purpose? "." time_commitment? "."? dest? registration_date LATE?
+start: (received | received_no_date | expected) _FROM entity "," purpose? "." time_commitment? "."? dest? registration_date LATE?
 
 %ignore " "
 
@@ -14,3 +14,4 @@ start: (received | received_no_date | expected) "from" entity "," purpose? "." t
 %import .shared.LATE
 %import .shared.received_no_date
 %import .shared.time_commitment
+%import .shared._FROM
