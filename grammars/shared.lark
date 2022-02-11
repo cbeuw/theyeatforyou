@@ -1,17 +1,16 @@
-purpose: ("for" | "by way of")? /[\w\s’–\d,]+/
+purpose.-10: /(for|by way of)?\w[\w\s’–,]{3,}/
 money: "approx."? "£"/\d{1,3}([,]\d{3})*(\.?\d+)?/ "(no VAT)"?
 registration_date: "(" "Registered" date ("; updated" date)? ")"
-entity: /.+[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}/
+entity: /\w.+[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}/
 duration: ("approx."? (/(\d+(\.\d+)? h(ou)?rs?)/ | /(\d+ h(ou)?rs? \d+ min(ute)?s?)/ | /(\d+ min(ute)?s?)/) ("to date" | "approx.")?) | "no additional hours"i
 _RECEIVED: "received"i | "payment of"i | "received payment of"i | "fee of"i | "received another payment of"i
 _FROM: "from" | "via"
 dest: "Unless stated otherwise,"? ("All"i? ("Fee"i | "payment") "s"? "are"? ("paid" | "paid direct" | "made direct" | "donated") | ("These fees are paid")) "to" /[\w\s\(\),\.\&]+/
-received: (date "," _RECEIVED money) | (_RECEIVED money "on" date) | (money "received" "on" date) | ("On" date "I" _RECEIVED money) | (date "," money "received")
+received: (date ","? _RECEIVED money) | (_RECEIVED money "on" date) | (money "received" "on" date) | ("On" date "I" _RECEIVED money) | (date "," money "received")
 received_no_date: "Payment of" money
 expected: ("Payment"? "of"? money "expected") | ("Payment expected of" money)
 time_commitment: "Hours" /.*:|\./? duration duration_explanation?
-
-duration_explanation: /[\w\s\(\),\.\&]+?(?=\(Registered)/
+duration_explanation.-10: /[^\s].{3,}?(?=\(Registered)/
 
 
 date: DAY MONTH YEAR
@@ -19,4 +18,4 @@ DAY: /\d\d?/
 MONTH: "January" | "February" | "March" | "April" | "May" | "June" | "July" | "August" | "September" | "October" | "November" | "December"
 YEAR: /\d\d\d\d/
 
-LATE: "This is a late" /.+/
+LATE.-10: "This is a late" /.+/
