@@ -1,9 +1,9 @@
 import json
 from collections import defaultdict
-from typing import Dict, Callable, List, Any
+from typing import Callable, Any
 
 
-def parse(parsers: Dict[str, Callable[[List[Any]], Any]]) -> Dict[str, Dict[str, Any]]:
+def parse(parsers: dict[str, Callable[[list[Any]], Any]]) -> dict[str, dict[str, Any]]:
     with open("crawler/interests.json", "r", encoding="utf-8") as interests_f:
         interests: dict = json.load(interests_f)
 
