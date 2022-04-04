@@ -153,4 +153,5 @@ def parse_entry(gift_entries: list[str]):
 
 
 if __name__ == "__main__":
-    parser.parse({"3. Gifts, benefits and hospitality from UK sources": parse_entry})
+    parser.parse({"3. Gifts, benefits and hospitality from UK sources": parse_entry,
+                  "5. Gifts and benefits from sources outside the UK": parse_entry})
